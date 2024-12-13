@@ -26,6 +26,7 @@ export default function RootLayout({
         variables: { colorPrimary: "#624cf5" },
       }}
       afterSignOutUrl={"/"}
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
     >
       <html lang="en">
         <body className={cn("font-IBMPlex antialiased", ibmPlex.variable)}>
