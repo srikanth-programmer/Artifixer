@@ -20,8 +20,8 @@ const UserSchema = new Schema({
     unique: true,
   },
   photo: { type: String, required: true },
-  firstName: { type: String },
-  lastName: { type: String },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
   planId: { type: Number, default: 1 },
   creditBalance: { type: Number, default: 10 },
 });
