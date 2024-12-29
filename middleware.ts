@@ -7,23 +7,12 @@ const isPublicRoute = createRouteMatcher([
   "/api/webhooks/clerk",
   "/api/webhooks/stripe",
 ]);
-const tenantKeys = {
-  tenant: {
-    publishableKey: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || "",
-    secretKey: process.env.CLERK_SECRET_KEY || "",
-  },
-};
 
-export default clerkMiddleware(
-  async (auth, request) => {
-    if (!isPublicRoute(request)) {
-      await auth.protect();
-    }
-  },
-  (req) => {
-    return tenantKeys.tenant;
+export default clerkMiddleware(async (auth, request) => {
+  if (!isPublicRoute(request)) {
+    await auth.protect();
   }
-);
+});
 
 export const config = {
   matcher: [
