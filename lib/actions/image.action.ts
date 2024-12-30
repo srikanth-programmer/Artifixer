@@ -122,7 +122,6 @@ export async function getAllImages({
     const { resources } = await cloudinary.search
       .expression(expression)
       .execute();
-    console.log(resources);
 
     const resourceIds = resources.map((resource: any) => resource.public_id);
 
